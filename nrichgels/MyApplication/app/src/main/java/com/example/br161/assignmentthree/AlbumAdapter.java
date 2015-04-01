@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -20,8 +21,27 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     }//End Constructor
 
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int ViewType)
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int ViewType)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contact, parent, false);
     }//End method onCreateViewHolder
+
+
+
+
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
+        ItemClickListener listener;
+        TextView tvName;
+        TextView tvAddress;
+        public void onClick(View view) {}//End method onClick
+
+
+        public interface ItemClickListener
+        {
+            void onItemClick(View view, int position);
+        }//End interface itemClickListener
+
+    }//End inner class ViewHolder
 }//End class AlbumAdapter
