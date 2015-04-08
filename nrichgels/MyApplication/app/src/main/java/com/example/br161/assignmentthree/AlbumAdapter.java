@@ -37,6 +37,14 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         TextView tvAddress;
         public void onClick(View view) {}//End method onClick
 
+        public ViewHolder(View itemView, ItemClickListener listener) {
+            super(itemView);
+            this.listener = listener;
+
+            tvName = (TextView) itemView.findViewById(R.id.tv_name);
+            tvAddress = (TextView) itemView.findViewById(R.id.tv_address);
+
+        }//End constructor
 
         public interface ItemClickListener
         {
@@ -44,4 +52,5 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
         }//End interface itemClickListener
 
     }//End inner class ViewHolder
+
 }//End class AlbumAdapter
