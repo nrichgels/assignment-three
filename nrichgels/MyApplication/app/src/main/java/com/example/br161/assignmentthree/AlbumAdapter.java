@@ -1,6 +1,7 @@
 package com.example.br161.assignmentthree;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,11 +25,28 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     public ViewHolder onCreateViewHolder(ViewGroup parent, int ViewType)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_contact, parent, false);
+        ViewHolder viewHolder = new ViewHolder(view, new ViewHolder.ItemClickListener()
+        {
+            @Override
+            public void onItemClick(View view, int position) {
+                //Handle clicks here.
+                Log.d("wat", "All your base r belong 2 us");
+            }
+        });
+
+        return viewHolder;
     }//End method onCreateViewHolder
 
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int i) {
+        holder.tvName.setText(albums.get(i).getAlbumName());
+        holder.tvAddress.setText(albums.get(i).getArtist());
+    }// End override method onBindVieHolder
 
-
-
+    @Override
+    public int getItemCount() {
+        return albums.size();
+    }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 

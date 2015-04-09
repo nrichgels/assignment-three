@@ -39,6 +39,7 @@ public class AlbumRecyclerView extends Fragment {
         List<Album> albums = mockAlbums();
 
         //I STILL NEED TO SET THE ADAPTER BELOW (SEE INSTRUCTOR'S CODE) !!!!!!!
+        recyclerAlbums.setAdapter(new AlbumAdapter(albums));
     }
 
     private List<Album> mockAlbums() {
