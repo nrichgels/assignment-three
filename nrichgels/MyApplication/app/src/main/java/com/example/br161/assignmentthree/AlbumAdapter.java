@@ -5,7 +5,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -30,7 +34,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
             @Override
             public void onItemClick(View view, int position) {
                 //Handle clicks here.
-                Log.d("wat", "All your base r belong 2 us");
+                Log.d("wat", albums.get(position).getArtist());
             }
         });
 
@@ -39,8 +43,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int i) {
-        holder.tvName.setText(albums.get(i).getAlbumName());
-        holder.tvAddress.setText(albums.get(i).getArtist());
+        holder.tvAlbum.setText(albums.get(i).getAlbumName());
+        holder.tvArtist.setText(albums.get(i).getArtist());
+        holder.tvPublisher.setText(albums.get(i).getPublisher());
+        holder.tvTracks.setText("Tracks: " + albums.get(i).getTrackCount());
+        holder.tvYear.setText("" + albums.get(i).getYear());
     }// End override method onBindVieHolder
 
     @Override
@@ -51,18 +58,30 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ItemClickListener listener;
-        TextView tvName;
-        TextView tvAddress;
-        public void onClick(View view) {}//End method onClick
+        TextView tvAlbum;
+        TextView tvArtist;
+        TextView tvPublisher;
+        TextView tvTracks;
+        TextView tvYear;
+
+        RelativeLayout regularLayout;
+
 
         public ViewHolder(View itemView, ItemClickListener listener) {
             super(itemView);
             this.listener = listener;
 
-            tvName = (TextView) itemView.findViewById(R.id.tv_name);
-            tvAddress = (TextView) itemView.findViewById(R.id.tv_address);
+            tvAlbum = (TextView) itemView.findViewById(R.id.tv_album);
+            tvArtist = (TextView) itemView.findViewById(R.id.tv_artist);
+            tvPublisher = (TextView) itemView.findViewById(R.id.tv_publisher);
+            tvTracks = (TextView) itemView.findViewById(R.id.tv_tracks);
+            tvYear = (TextView) itemView.findViewById(R.id.tv_year);
+            regularLayout = (RelativeLayout) itemView.findViewById(R.id.regLayout);
 
+            regularLayout.setOnClickListener(this);
         }//End constructor
+
+        public void onClick(View view) {listener.onItemClick(view, getPosition());}//End method onClick
 
         public interface ItemClickListener
         {

@@ -45,19 +45,16 @@ public class AlbumRecyclerView extends Fragment {
     private List<Album> mockAlbums() {
         // Creates a list of Contacts and fills them up with data
         List<Album> albums = new ArrayList<>();
-        albums.add(new Album("Sam", "Front of the class"));
-        albums.add(new Album("Sam", "Front of the class"));
-        albums.add(new Album("Susie", "Back of the class"));
+        albums.add(new Album("A Night at the Opera", "Queen", "Elektra", 12, 1975));
+        albums.add(new Album("Bo Burnham", "Bo Burnham", "Comedy Central Records", 13, 2009));
+        albums.add(new Album("American Idiot", "Green Day", "Reprise", 13, 2004 ));
+        albums.add(new Album("The Biz Never Sleeps", "Biz Markie", "Warner Bros. Records", 13, 1989));
+        albums.add(new Album("Daler Mehndi", "Tunak Tunak Tun", "MagnaSound", 8, 1998));
+        albums.add(new Album("Blink", "Plumb", "Curb", 10, 2007));
+        albums.add(new Album("Floored", "Sugar Ray", "Atlantic", 13, 1997));
+        /*albums.add(new Album("Susie", "Back of the class"));
         albums.add(new Album("Hal", "Virginia (and sometimes DC)"));
-        albums.add(new Album("Bernice", "Not even in this class"));
-        albums.add(new Album("Sam", "Front of the class"));
-        albums.add(new Album("Sam", "Front of the class"));
-        albums.add(new Album("Susie", "Back of the class"));
-        albums.add(new Album("Hal", "Virginia (and sometimes DC)"));
-        albums.add(new Album("Bernice", "Not even in this class"));
-        albums.add(new Album("Sam", "Front of the class"));
-        albums.add(new Album("Sam", "Front of the class"));
-        albums.add(new Album("Susie", "Back of the class"));
+        albums.add(new Album("Bernice", "Not even in this class"));*/
 
         return albums;
     }
